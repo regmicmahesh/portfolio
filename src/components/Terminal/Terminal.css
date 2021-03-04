@@ -1,0 +1,72 @@
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.terminal {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 600px;
+  width: 800px;
+  border-radius: 10px;
+}
+
+.terminal-content {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 95%;
+  padding: 10px 25px;
+}
+
+.terminal-segment {
+  color: white;
+}
+.bold {
+  font-weight: bold;
+}
+.text-green {
+  color: green;
+}
+
+.right-box {
+  position: relative;
+}
+.output {
+  position: relative;
+  margin-left: -180px;
+}
+
+.right-box .input-box {
+  margin-left: -180px;
+  padding: 0px 10px;
+}
+
+.output-box{
+    margin-left: -180px;
+}
+
+.hidden-input{
+    background: none;
+    outline: none;
+    border: none;
+    color: none;
+    width: 0px;
+}
