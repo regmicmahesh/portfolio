@@ -2,10 +2,10 @@ import React from "react";
 import "./neofetch.css"
 export default <div>
     <div className="row neofetch">
-        <div className="col-md-6">
+        <div className="col-sm-6">
             <img className="arch-neofetch" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Archlinux-icon-crystal-64.svg/1024px-Archlinux-icon-crystal-64.svg.png" alt=""/>
         </div>
-        <div className="col-md-6">
+        <div className="col-sm-6">
             <div className="text-blue text-underlined">regmicmahesh@softwaredev</div>
             <div className="text-blue">OS: <span className="text-white">Mahesh C. Regmi</span></div>
             <div className="text-blue">Host: <span className="text-white">Thankot, Kathmandu</span></div>
