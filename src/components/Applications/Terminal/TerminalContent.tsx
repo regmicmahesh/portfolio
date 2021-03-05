@@ -16,7 +16,7 @@ const TerminalContent: React.FC<TerminalContentProps> = ({ windowRef }) => {
 
   useEffect(() => {
     contentRef.current!.scrollTop = contentRef.current!.scrollHeight;
-  }, [pastOutputs]);
+  },[pastOutputs]);
 
   const onKeyPressHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== "Enter") return;
