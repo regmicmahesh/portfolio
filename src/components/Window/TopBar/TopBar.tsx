@@ -3,11 +3,12 @@ import "./TopBar.css";
 
 interface TopBarProps {
   closeTerminal: Function;
+  dragger: any
 }
 
-const TopBar: React.FC<TopBarProps> = ({ closeTerminal }) => {
+const TopBar: React.FC<TopBarProps> = ({ closeTerminal, dragger }) => {
   return (
-    <div className="item top-bar">
+    <div className="item top-bar" draggable onDrag={dragger}>
       <div className="row">
         <div className="col-sm-1 item buttons">
           <div className="button-icons">

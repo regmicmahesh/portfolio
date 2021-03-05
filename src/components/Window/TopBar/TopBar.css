@@ -7,7 +7,7 @@
 }
 
 .titlebar{
-    cursor: crosshair;
+    cursor: move;
 }
 .item.buttons{
     /* background-color: blue; */

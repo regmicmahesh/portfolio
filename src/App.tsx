@@ -2,31 +2,35 @@ import React, { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Terminal from "./components/Terminal/Terminal";
+import { v4 as uuid } from "uuid";
 
 interface IWindow {
-  windowId: number;
+  windowId: string;
   windowElement: React.ReactNode;
 }
 
 function App() {
-  const [windowId, setWindowId] = useState(0);
-  const removeWindow = (id: number) => {
+  const removeWindow = (id: string) => {
     setWindows(windows.filter((el) => el.windowId !== id));
   };
+
+  const defaultUuid = uuid()
   const [windows, setWindows] = useState<IWindow[]>([
     {
-      windowId: 0,
-      windowElement: <Terminal key={0} onWindowClose={() => removeWindow(0)} />,
+      windowId: defaultUuid,
+      windowElement: <Terminal key={0} onWindowClose={() => removeWindow(defaultUuid)} />,
     },
   ]);
 
   const addWindow = () => {
-    setWindowId(windowId + 1);
+    const newUuid = uuid();
     setWindows([
       ...windows,
       {
-        windowId: windowId,
-        windowElement: <Terminal key={windowId} onWindowClose={() => removeWindow(0)} />,
+        windowId: newUuid,
+        windowElement: (
+          <Terminal key={newUuid} onWindowClose={() => removeWindow(newUuid)} />
+        ),
       },
     ]);
   };

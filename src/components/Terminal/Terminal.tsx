@@ -9,7 +9,7 @@ interface ITerminalProps {
 const Terminal: React.FC<ITerminalProps> = (props) => {
   return (
     <BaseWindow onWindowClose={props.onWindowClose}>
-      <TerminalContent windowRef={""} />
+      <TerminalContent windowRef={"WILL BE REPLACED BY BASE WINDOW"} />
     </BaseWindow>
   );
 };
