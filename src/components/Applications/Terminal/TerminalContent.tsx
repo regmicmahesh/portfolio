@@ -74,7 +74,7 @@ const TerminalContent: React.FC<TerminalContentProps> = ({ windowRef }) => {
 
         <div className="right-box col-sm-9">
           <div className="input-box">
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {terminalInput} █
           </div>
