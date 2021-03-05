@@ -6,6 +6,9 @@
     border-top-right-radius: 10px;
 }
 
+.titlebar{
+    cursor: crosshair;
+}
 .item.buttons{
     /* background-color: blue; */
     height: 30px;

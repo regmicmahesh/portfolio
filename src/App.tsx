@@ -3,38 +3,38 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Terminal from "./components/Terminal/Terminal";
 
-interface ITerminal {
-  terminalId: number;
-  terminalElement: React.ReactNode;
+interface IWindow {
+  windowId: number;
+  windowElement: React.ReactNode;
 }
 
 function App() {
-  const [tId, setTId] = useState(0);
-  const removeTerminal = (id: number) => {
-    setTerminals(terminals.filter((el) => el.terminalId !== id));
+  const [windowId, setWindowId] = useState(0);
+  const removeWindow = (id: number) => {
+    setWindows(windows.filter((el) => el.windowId !== id));
   };
-  const [terminals, setTerminals] = useState<ITerminal[]>([
+  const [windows, setWindows] = useState<IWindow[]>([
     {
-      terminalId: 0,
-      terminalElement: <Terminal onTerminalClose={() => removeTerminal(0)} />,
+      windowId: 0,
+      windowElement: <Terminal key={0} onWindowClose={() => removeWindow(0)} />,
     },
   ]);
 
-  const addTerminal = () => {
-    setTId(tId + 1);
-    setTerminals([
-      ...terminals,
+  const addWindow = () => {
+    setWindowId(windowId + 1);
+    setWindows([
+      ...windows,
       {
-        terminalId: tId,
-        terminalElement: <Terminal onTerminalClose={() => removeTerminal(0)} />,
+        windowId: windowId,
+        windowElement: <Terminal key={windowId} onWindowClose={() => removeWindow(0)} />,
       },
     ]);
   };
 
   return (
     <div className="App">
-      <Navbar addTerminal={addTerminal} />
-      {terminals.map((el) => el.terminalElement)}
+      <Navbar addTerminal={addWindow} />
+      {windows.map((el) => el.windowElement)}
     </div>
   );
 }
