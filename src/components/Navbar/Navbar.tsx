@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+
+//logo imports
 import archLogo from "./assets/archlogo.png";
 import terminalLogo from "./assets/terminal.png";
 import wifiLogo from "./assets/wifilogo.png";
 import speakerLogo from "./assets/speakerlogo.png";
 import profileLogo from "./assets/profilelogo.png";
 
+
+//widgets import
+import Wifi from "./widgets/Wifi/Wifi";
+
 export interface NavbarProps{
   addTerminal: Function
 }
 const Navbar: React.FC<NavbarProps> = ({addTerminal}) => {
+  const [wifiShown, setWifiShown] = useState(false);
   return (
     <section id="topNav">
       <div className="row">
@@ -29,7 +36,9 @@ const Navbar: React.FC<NavbarProps> = ({addTerminal}) => {
             className="filter-invert"
             src={wifiLogo}
             alt=""
+            onClick={() => setWifiShown(!wifiShown)}
           />
+          {wifiShown && <Wifi hide={() => setWifiShown(false)}  />}
           <img
             id="navicon"
             className="filter-invert"

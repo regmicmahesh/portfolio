@@ -8,7 +8,16 @@ const Ping = (hostname: string) => {
         params: { q: hostname },
       })
       .then((el) => {
-        resolve(<div>{el.data}</div>);
+        resolve(
+          <div>
+            {el.data.split("\n").map((txt: any) => (
+              <div>{txt}</div>
+            ))}
+          </div>
+        );
+      })
+      .catch(() => {
+        resolve(<div>Something went wrong</div>);
       });
   });
 };

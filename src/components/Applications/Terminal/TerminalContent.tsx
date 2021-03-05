@@ -42,8 +42,9 @@ const TerminalContent: React.FC<TerminalContentProps> = ({ windowRef }) => {
    
   };
 
-  const onWindowFocus = () => {
+  const onWindowFocus = (e: any) => {
     inputRef.current?.focus();
+    e.stopPropagation();
   };
 
   const terminalInputChange = (e: any) => {
