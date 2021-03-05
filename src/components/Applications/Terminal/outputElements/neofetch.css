@@ -1,0 +1,19 @@
+.neofetch{
+    padding: 30px 0px;
+}
+.arch-neofetch{
+    width: 90%;
+    height: 100%;
+}
+.text-blue{
+    margin-bottom: 5px;
+    color: skyblue;
+}
+.text-white{
+    color: white;
+}
+.text-underlined{
+    border-bottom: 1px dotted white;
+    display: inline-block;
+    padding: 5px 5px;
+}

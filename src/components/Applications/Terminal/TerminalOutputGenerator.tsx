@@ -4,6 +4,7 @@ import commands from "./commands.json";
 import "./TerminalOutputGenerator.css";
 import psAuxTable from "./outputElements/ps";
 import minfo from "./outputElements/minfo";
+import neofetch from "./outputElements/neofetch";
 
 const getTerminalOutput = (input: string) => {
   const command = commands.find((el) => input.startsWith(el.input));
@@ -27,6 +28,12 @@ const getTerminalOutput = (input: string) => {
   if(input.startsWith("minfo")){
       return <div>
             {minfo}
+      </div>
+  }
+  console.log(input);
+  if(input.startsWith("neo")){
+      return <div>
+          {neofetch}
       </div>
   }
 
