@@ -1,0 +1,25 @@
+[
+  {
+    "input": "whoami",
+    "output": [
+      "regmicmahesh",
+      "Find out more...",
+      "- [Github](https://github.com/regmicmahesh)",
+      "- [Facebook](https://facebook.com/regmicmahesh)",
+      "Enter minfo for more..."
+    ]
+  },
+  {
+    "input": "ls",
+    "output": [".", ".."]
+  },
+  {
+    "input": "shutdown",
+    "output": [
+      "No you can't shut me down.",
+      "Wait, are you my girlfriend?",
+      "Or, dad :("
+    ]
+  }
+  
+]

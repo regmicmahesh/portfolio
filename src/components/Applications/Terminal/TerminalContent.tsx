@@ -1,6 +1,7 @@
 import React, { createRef, useState } from "react";
 import PastOutput, { PastOutputProps } from "./PastOutput";
 import {v4 as uuid} from "uuid";
+import getTerminalOutput from "./TerminalOutputGenerator";
 interface TerminalContentProps {
     windowRef: any,
 }
@@ -15,17 +16,12 @@ const TerminalContent: React.FC<TerminalContentProps> = ({windowRef}) => {
 
     e.preventDefault();
 
-    switch (terminalInput) {
-      case "clear":
-        setPastOutputs([]);
-        break;
-      default:
-        setPastOutputs([
-          ...pastOutputs,
-          { output: <>Unknown Command</>, terminalInput: terminalInput },
-        ]);
-        break;
-    }
+   if(terminalInput == "clear"){
+     setPastOutputs([]);
+   }else{
+     const output = getTerminalOutput(terminalInput);
+     setPastOutputs([...pastOutputs, {terminalInput, output}])
+   } 
 
     setTerminalInput("");
   };

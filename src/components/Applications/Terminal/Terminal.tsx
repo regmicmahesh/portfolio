@@ -1,5 +1,5 @@
 import React from "react";
-import BaseWindow from "../Window/Window";
+import BaseWindow from "../../Window/Window";
 import TerminalContent from "./TerminalContent";
 
 interface ITerminalProps {

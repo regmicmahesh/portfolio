@@ -64,6 +64,7 @@
 }
 
 .hidden-input{
+  position: fixed;
     background: none;
     outline: none;
     border: none;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import Terminal from "./components/Terminal/Terminal";
+import Terminal from "./components/Applications/Terminal/Terminal";
 import { v4 as uuid } from "uuid";
 
 interface IWindow {
