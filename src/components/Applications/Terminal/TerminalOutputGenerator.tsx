@@ -31,15 +31,7 @@ const getTerminalOutput = (input: string) => {
     return <div>{neofetch}</div>;
   }
 
-  if (input.startsWith("ping")) {
-    const hostname = input.split(" ")[1];
-    return (
-      <div>
-        <div>Buggy as hell.</div>
-        {/* <Ping hostname={hostname} /> */}
-      </div>
-    );
-  }
+ 
 
   return <div>Unknown command.</div>;
 };

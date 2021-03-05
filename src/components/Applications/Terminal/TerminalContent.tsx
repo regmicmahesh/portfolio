@@ -2,6 +2,7 @@ import React, { createRef, useEffect, useState } from "react";
 import PastOutput, { PastOutputProps } from "./PastOutput";
 import { v4 as uuid } from "uuid";
 import getTerminalOutput from "./TerminalOutputGenerator";
+import Ping from "./outputElements/ping";
 interface TerminalContentProps {
   windowRef: any;
 }
@@ -16,7 +17,7 @@ const TerminalContent: React.FC<TerminalContentProps> = ({ windowRef }) => {
 
   useEffect(() => {
     contentRef.current!.scrollTop = contentRef.current!.scrollHeight;
-  },[pastOutputs]);
+  }, [pastOutputs]);
 
   const onKeyPressHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== "Enter") return;
@@ -25,12 +26,20 @@ const TerminalContent: React.FC<TerminalContentProps> = ({ windowRef }) => {
 
     if (terminalInput == "clear") {
       setPastOutputs([]);
+      setTerminalInput("");
+    } else if (terminalInput.startsWith("ping")) {
+      const hostname = terminalInput.split(" ")[1];
+      Ping(hostname).then((domEl) => {
+        setPastOutputs([...pastOutputs, { terminalInput, output: domEl }]);
+        setTerminalInput("");
+      });
     } else {
       const output = getTerminalOutput(terminalInput);
       setPastOutputs([...pastOutputs, { terminalInput, output }]);
+      setTerminalInput("");
     }
 
-    setTerminalInput("");
+   
   };
 
   const onWindowFocus = () => {
@@ -74,9 +83,9 @@ const TerminalContent: React.FC<TerminalContentProps> = ({ windowRef }) => {
 
         <div className="right-box col-sm-9">
           <div className="input-box">
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {terminalInput} █
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; {terminalInput} █
           </div>
         </div>
       </div>

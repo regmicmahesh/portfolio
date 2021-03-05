@@ -20,7 +20,6 @@ const BaseWindow: React.FC<WindowProps> = (props) => {
   return (
     <div className="terminal" ref={windowRef}>
       <TopBar dragger={onWindowDrag} closeTerminal={props.onWindowClose} />
-      <div ref={windowRef} />
       {React.cloneElement(props.children as React.ReactElement, { windowRef })}
     </div>
   );
