@@ -10,12 +10,14 @@ import profileLogo from "./assets/profilelogo.png";
 
 //widgets import
 import Wifi from "./widgets/Wifi/Wifi";
+import Volume from "./widgets/Volume/Volume";
 
 export interface NavbarProps{
   addTerminal: Function
 }
 const Navbar: React.FC<NavbarProps> = ({addTerminal}) => {
   const [wifiShown, setWifiShown] = useState(false);
+  const [volumeShown, setVolumeShown] = useState(false);
   return (
     <section id="topNav">
       <div className="row">
@@ -44,7 +46,9 @@ const Navbar: React.FC<NavbarProps> = ({addTerminal}) => {
             className="filter-invert"
             src={speakerLogo}
             alt=""
+            onClick={() => setVolumeShown(!volumeShown)}
           />
+          {volumeShown && <Volume hide={() => setVolumeShown(false)} />}
           <img
             id="navicon"
             className="filter-invert"
